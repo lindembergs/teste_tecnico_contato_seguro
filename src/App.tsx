@@ -1,0 +1,55 @@
+import React, { useState } from "react";
+import { DataProvider } from "./context/DataContext";
+import { AuthorList } from "./components/AuthorList";
+import { BookList } from "./components/BookList";
+import styled from "styled-components";
+
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+`;
+
+const Tabs = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+`;
+
+const Tab = styled.button<{ active: boolean }>`
+  padding: 10px 20px;
+  border: none;
+  background: ${(props) => (props.active ? "#007bff" : "#f8f9fa")};
+  color: ${(props) => (props.active ? "white" : "black")};
+  cursor: pointer;
+  border-radius: 4px;
+`;
+
+const App: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<"books" | "authors">("books");
+
+  return (
+    <DataProvider>
+      <Container>
+        <h1>Library Management</h1>
+        <Tabs>
+          <Tab
+            active={activeTab === "books"}
+            onClick={() => setActiveTab("books")}
+          >
+            Books
+          </Tab>
+          <Tab
+            active={activeTab === "authors"}
+            onClick={() => setActiveTab("authors")}
+          >
+            Authors
+          </Tab>
+        </Tabs>
+        {activeTab === "books" ? <BookList /> : <AuthorList />}
+      </Container>
+    </DataProvider>
+  );
+};
+
+export default App;
