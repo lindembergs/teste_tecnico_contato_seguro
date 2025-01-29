@@ -1,6 +1,27 @@
 // src/components/styles/StyledComponents.ts
 import styled from "styled-components";
+export const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+`;
 
+export const Tabs = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+`;
+
+export const Tab = styled.button<{ active: boolean }>`
+  padding: 10px 20px;
+  border: none;
+  background: ${(props) => (props.active ? "#007bff" : "#f8f9fa")};
+  color: ${(props) => (props.active ? "white" : "black")};
+  cursor: pointer;
+  border-radius: 4px;
+`;
 export const Button = styled.button`
   padding: 10px 20px;
   border-radius: 8px;
