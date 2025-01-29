@@ -8,6 +8,8 @@ const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #f8fafc;
+  border-radius: 8px;
 `;
 
 const Tabs = styled.div`

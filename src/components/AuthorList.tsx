@@ -42,7 +42,7 @@ export const AuthorList: React.FC = () => {
     if (authorBooks.length > 0) {
       if (
         window.confirm(
-          `This author has ${authorBooks.length} book(s). Deleting this author will also delete their books. Are you sure?`
+          `Esse autor possui ${authorBooks.length} livro(s). Excluir esse autor também excluirá seus livros. Tem certeza?`
         )
       ) {
         removeAuthor(author.id);
@@ -116,11 +116,13 @@ export const AuthorList: React.FC = () => {
         <>
           <Overlay />
           <ConfirmDialog>
-            <p>Are you sure you want to delete {authorToDelete.name}?</p>
+            <p>Tem certeza que deseja excluir o autor {authorToDelete.name}?</p>
             <Button className="danger" onClick={confirmDelete}>
-              Delete
+              Excluir
             </Button>
-            <Button onClick={() => setAuthorToDelete(undefined)}>Cancel</Button>
+            <Button onClick={() => setAuthorToDelete(undefined)}>
+              Cancelar
+            </Button>
           </ConfirmDialog>
         </>
       )}
