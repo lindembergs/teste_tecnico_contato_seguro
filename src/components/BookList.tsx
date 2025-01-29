@@ -55,15 +55,15 @@ export const BookList: React.FC = () => {
 
   return (
     <div>
-      <Button onClick={() => setShowModal(true)}>Add Book</Button>
+      <Button onClick={() => setShowModal(true)}>Adicionar livro</Button>
 
       <Table>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Pages</th>
-            <th>Actions</th>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Páginas</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -72,17 +72,17 @@ export const BookList: React.FC = () => {
             return (
               <tr key={book.id}>
                 <td>{book.name}</td>
-                <td>{author?.name || "Unknown Author"}</td>
-                <td>{book.pages || "N/A"}</td>
+                <td>{author?.name || "Autor desconhecido"}</td>
+                <td>{book.pages || "Não especificado"}</td>
                 <td>
                   <ActionButton onClick={() => handleView(book)}>
-                    View
+                    Ver e editar
                   </ActionButton>
                   <ActionButton
                     className="danger"
                     onClick={() => handleDelete(book)}
                   >
-                    Delete
+                    Excluir
                   </ActionButton>
                 </td>
               </tr>
@@ -107,11 +107,11 @@ export const BookList: React.FC = () => {
         <>
           <Overlay />
           <ConfirmDialog>
-            <p>Are you sure you want to delete {bookToDelete.name}?</p>
+            <p>Tem certeza que deseja excluir o livro {bookToDelete.name}?</p>
             <Button className="danger" onClick={confirmDelete}>
-              Delete
+              Excluir
             </Button>
-            <Button onClick={() => setBookToDelete(undefined)}>Cancel</Button>
+            <Button onClick={() => setBookToDelete(undefined)}>Cancelar</Button>
           </ConfirmDialog>
         </>
       )}

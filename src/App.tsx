@@ -25,25 +25,25 @@ const Tab = styled.button<{ active: boolean }>`
   border-radius: 4px;
 `;
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"books" | "authors">("books");
 
   return (
     <DataProvider>
       <Container>
-        <h1>Library Management</h1>
+        <h1>Gestão da biblioteca</h1>
         <Tabs>
           <Tab
             active={activeTab === "books"}
             onClick={() => setActiveTab("books")}
           >
-            Books
+            Livros
           </Tab>
           <Tab
             active={activeTab === "authors"}
             onClick={() => setActiveTab("authors")}
           >
-            Authors
+            Autores
           </Tab>
         </Tabs>
         {activeTab === "books" ? <BookList /> : <AuthorList />}
@@ -51,5 +51,3 @@ const App: React.FC = () => {
     </DataProvider>
   );
 };
-
-export default App;

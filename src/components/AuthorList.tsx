@@ -66,15 +66,15 @@ export const AuthorList: React.FC = () => {
 
   return (
     <div>
-      <Button onClick={() => setShowModal(true)}>Add Author</Button>
+      <Button onClick={() => setShowModal(true)}>Adicionar autor</Button>
 
       <Table>
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Nome</th>
             <th>Email</th>
-            <th>Books Count</th>
-            <th>Actions</th>
+            <th>Quantidade de livros</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -87,13 +87,13 @@ export const AuthorList: React.FC = () => {
               </td>
               <td>
                 <ActionButton onClick={() => handleView(author)}>
-                  View
+                  Ver ou editar
                 </ActionButton>
                 <ActionButton
                   className="danger"
                   onClick={() => handleDelete(author)}
                 >
-                  Delete
+                  Excluir
                 </ActionButton>
               </td>
             </tr>

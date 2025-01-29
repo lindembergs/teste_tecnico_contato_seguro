@@ -37,11 +37,11 @@ export const BookModal: React.FC<BookModalProps> = ({
   return (
     <Modal>
       <ModalContent>
-        <h2>{book ? "Edit Book" : "Add Book"}</h2>
+        <h2>{book ? "Editar livro" : "Adicionar livro"}</h2>
         <Form onSubmit={handleSubmit(onSubmitForm)}>
-          <Input {...register("name")} placeholder="Title" required />
+          <Input {...register("name")} placeholder="Digite o titulo" required />
           <select {...register("author_id")} required>
-            <option value="">Select Author</option>
+            <option value="">selecione o autor</option>
             {authors.map((author) => (
               <option key={author.id} value={author.id}>
                 {author.name}
@@ -50,12 +50,12 @@ export const BookModal: React.FC<BookModalProps> = ({
           </select>
           <Input
             {...register("pages", { valueAsNumber: true })}
-            placeholder="Pages"
+            placeholder="Páginas"
             type="number"
           />
-          <Button type="submit">Save</Button>
+          <Button type="submit">Salvar</Button>
           <Button type="button" className="danger" onClick={onClose}>
-            Cancel
+            Cancelar
           </Button>
         </Form>
       </ModalContent>

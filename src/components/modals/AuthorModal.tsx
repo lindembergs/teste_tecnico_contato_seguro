@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Author } from "../../types/types";
+import { Author, AuthorModalProps } from "../../types/types";
 import {
   Modal,
   ModalContent,
@@ -8,12 +8,6 @@ import {
   Input,
   Button,
 } from "../../styles/CommonStyles";
-
-interface AuthorModalProps {
-  onClose: () => void;
-  onSubmit: (data: Author) => void;
-  author?: Author;
-}
 
 export const AuthorModal: React.FC<AuthorModalProps> = ({
   onClose,
@@ -35,13 +29,17 @@ export const AuthorModal: React.FC<AuthorModalProps> = ({
   return (
     <Modal>
       <ModalContent>
-        <h2>{author ? "Edit Author" : "Add Author"}</h2>
+        <h2>{author ? "Editar autor" : "Adicionar autor"}</h2>
         <Form onSubmit={handleSubmit(onSubmitForm)}>
-          <Input {...register("name")} placeholder="Name" required />
-          <Input {...register("email")} placeholder="Email" type="email" />
-          <Button type="submit">Save</Button>
+          <Input {...register("name")} placeholder="Digite o nome" required />
+          <Input
+            {...register("email")}
+            placeholder="Digite o Email"
+            type="email"
+          />
+          <Button type="submit">Salvar</Button>
           <Button type="button" className="danger" onClick={onClose}>
-            Cancel
+            Cancelar
           </Button>
         </Form>
       </ModalContent>

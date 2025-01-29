@@ -18,3 +18,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
   marginRight?: boolean;
 }
+
+export interface AuthorModalProps {
+  onClose: () => void;
+  onSubmit: (data: Author) => void;
+  author?: Author;
+}
